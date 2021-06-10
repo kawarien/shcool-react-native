@@ -9,6 +9,9 @@ import { createStore } from "redux";
 import { DefaultTheme, Provider as PaperProvider } from "react-native-paper";
 import LessonsScreen from '../src/screens/LessonsScreen';
 import StudentsScreen from '../src/screens/StudentsScreen';
+import AbscenceScreen from '../src/screens/AbscenceScreen';
+
+
 
 const Stack = createStackNavigator();
 
@@ -33,6 +36,7 @@ const theme = {
             <Stack.Screen name="Home" component={HomeScreen} />
             <Stack.Screen name="Lessons" component={LessonsScreen} />
             <Stack.Screen name="Students" component={StudentsScreen} />
+            <Stack.Screen name="Abscence" component={AbscenceScreen} />
             </Stack.Navigator>
             </NavigationContainer>
       </PaperProvider>

@@ -17,8 +17,7 @@ import { StyleSheet } from 'react-native';
       },
       containerStudent: {
         padding: 5,
-        margin: 10
-
+        margin: 10,
       },
       buttonText: {
         fontSize: 20,

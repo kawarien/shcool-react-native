@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useContext }  from 'react';
 import {Text, View, TouchableOpacity} from 'react-native';
 
+import reducer from '../reducers/schoolProvider'
 import styles from '../../Styles/global';
 
 const HomeScreen = ({ navigation }) => {
-
   return (
     <View style={styles.container}>
       <Text style={styles.bienvenueText}>Hello Bienvenue</Text>
