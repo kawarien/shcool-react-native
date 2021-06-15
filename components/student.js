@@ -12,7 +12,7 @@ import { Divider } from 'react-native-paper';
 import styles from '../Styles/global';
 
 
-const Student = ({ navigation, data}) => {
+const Student = ({ navigation, data, average}) => {
     const { student } = data;
 
     return (
@@ -38,7 +38,7 @@ const Student = ({ navigation, data}) => {
             <Text>{student.name}</Text>
                 <Text style={{ padding: 2, marginBottom: 2 }} >Nombre d'abscence(s) {student.attendance}</Text>
                 <Text style={{ padding: 2, marginBottom: 2 }}  >Nombre de cours {student.lessons ? student.lessons.length : 0}</Text>
-                <Text style={{ padding: 2, marginBottom: 2 }} >{student.notes}</Text>
+                <Text style={{ padding: 2, marginBottom: 2 }} >{ average}</Text>
             
                 
             </View>

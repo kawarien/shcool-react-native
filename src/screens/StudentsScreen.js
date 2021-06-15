@@ -4,6 +4,8 @@ import Student from '../../components/student';
 import { Divider } from 'react-native-paper';
 import styles from '../../Styles/global';
 
+import { average } from '../../actions/actions-types';
+
 import { useSelector, useDispatch } from 'react-redux';
 
 import { SCHOOLDATA } from '../../actions/actions-types'
@@ -54,6 +56,7 @@ const StudentsScreen = ({ navigation }) => {
                     return (
                         <Student
                             data={item}
+                            average={average(item.student.notes)}
                             navigation={navigation}
                         />
                     );
