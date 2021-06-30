@@ -74,7 +74,7 @@ const reducer = (state = initialState, action) => {
         student.attendance--;
 
       } else {
-        alert("Vous ne pouvez pas drecrementer en dessous de 0")
+        alert("Vous ne pouvez pas drecrementer en dessous de zero(0)")
       }
       
       console.log("student.attendance", student)
