@@ -12,8 +12,9 @@ import { Divider } from 'react-native-paper';
 import styles from '../Styles/global';
 
 
-const Student = ({ navigation, data, average}) => {
+const Student = ({ navigation, data, average, attendance}) => {
     const { student } = data;
+    console.log("attendance attendance",attendance);
 
     return (
 
@@ -24,7 +25,7 @@ const Student = ({ navigation, data, average}) => {
             style={[
                 styles.item,
                 { flex: 1, flexDirection: 'row' },
-                { backgroundColor: 'transparent', borderColor: 'grey' }
+                { backgroundColor: attendance > 5 ? '#FFA07A' : 'transparent' }
             ]}
         >
             <View style={{ width: 110 }}>

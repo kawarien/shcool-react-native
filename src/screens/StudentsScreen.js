@@ -4,16 +4,17 @@ import Student from '../../components/student';
 import { Divider } from 'react-native-paper';
 import styles from '../../Styles/global';
 
-import { average } from '../../actions/actions-types';
+import { average, reOrder } from '../../actions/actions-types';
 
 import { useSelector, useDispatch } from 'react-redux';
 
 import { SCHOOLDATA } from '../../actions/actions-types'
 
 const StudentsScreen = ({ navigation }) => {
-    const { students } = useSelector(state => {
+    const { students, sens } = useSelector(state => {
         return {
             students: state.students,
+            sens: state.sens
 
         }
     });
@@ -22,6 +23,7 @@ const StudentsScreen = ({ navigation }) => {
     const Students = students.map(student => {
         return {
             student: student,
+            
         }
     });
 
@@ -41,8 +43,8 @@ const StudentsScreen = ({ navigation }) => {
             </TouchableOpacity>
             <TouchableOpacity
                 style={styles.buttonContainer}
-                onPress={()=> console.log("Order")}>
-                <Text style={styles.buttonText}>Ordonner la moyenne</Text>
+                onPress={()=> dispatch(reOrder())}>
+                <Text style={styles.buttonText}>Ordre {sens ? 'croissant' : 'decroissant'}</Text>
             </TouchableOpacity>
            
 
@@ -58,6 +60,7 @@ const StudentsScreen = ({ navigation }) => {
                             data={item}
                             average={average(item.student.notes)}
                             navigation={navigation}
+                            attendance = {item.student.attendance}
                         />
                     );
                 }}

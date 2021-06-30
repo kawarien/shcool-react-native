@@ -8,19 +8,18 @@ import {
 import styles from '../../Styles/global';
 import { useSelector, useDispatch } from 'react-redux';
 
+import {increment_abscence, decrement_abscence} from "../../actions/actions-types"
+
 const AbscenceScreen = ({ navigation, route }) => {
-//   const [state] = useSelector(  state => {
-//     return {
-//         students: state.students,
-//     }
-
-    
-// });
-
-console.log(navigation);
-console.log(route.params);
-
   
+
+const { id } = route.params;
+const dispatch = useDispatch();
+
+
+
+// console.log(navigation);
+console.log("blabla ou je ne sais pas", route.params.student.id);
 
   return (
     <SafeAreaView style={{ flex: 1, alignItems: 'center' }}>
@@ -32,18 +31,18 @@ console.log(route.params);
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.buttonContainer}
-        onPress={()=> console.log("increment")}
+        onPress={()=> dispatch(increment_abscence(id))}
       >
-        <Text style={styles.buttonText}>Incrémente abscence (+1) </Text>
+        <Text style={styles.buttonText}>Incrémenter (+1) </Text>
       </TouchableOpacity>
         <TouchableOpacity
           style={styles.buttonContainer}
-          onPress={()=> console.log("decrement")}
+          onPress={()=> dispatch(decrement_abscence(id))}
         >
-          <Text style={styles.buttonText}>Incrémente abscence (-1) </Text>
+          <Text style={styles.buttonText}>decrémenter(-1 ) </Text>
         </TouchableOpacity>
       <View  >
-        <Text >Hello</Text>
+        <Text>Hello</Text>
       </View>
 
     </SafeAreaView>
