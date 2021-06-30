@@ -1,4 +1,4 @@
-import {  SCHOOLDATA, REORDER, INCREMENT, DECREMENT} from '../constants/actions';
+import {  SCHOOLDATA, REORDER, INCREMENT, DECREMENT,RESETABB} from '../constants/actions';
  
 export const schooldata = payload => {
     return {
@@ -23,7 +23,11 @@ export const increment_abscence = id => {
         type: INCREMENT
     };
 }
-
+export const reset_abscence = id => {
+    return {
+        type: RESETABB
+    };
+}
 export const average = notes => {
     const nbNotes = Array.isArray(notes) && notes.length;
  

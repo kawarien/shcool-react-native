@@ -90,6 +90,28 @@ const reducer = (state = initialState, action) => {
         
       }
 
+      case RESETABB:
+        students = deepCopieStudents(state.students);
+  
+        student = { ...students.find(s => s.id ) };
+        
+          student.attendance=0;
+  
+        
+        
+        console.log("student.attendance", student)
+  
+        students = students.map( s => {
+          if ( s.id != student.id ) return s;
+          return student;
+       });
+  
+        return {
+          ...state,
+          students: students
+          
+        }
+
 
     case 'RESET':
 
