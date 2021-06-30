@@ -8,7 +8,7 @@ import {
 import styles from '../../Styles/global';
 import { useSelector, useDispatch } from 'react-redux';
 
-import {increment_abscence, decrement_abscence} from "../../actions/actions-types"
+import {increment_abscence, decrement_abscence,reset_abscence} from "../../actions/actions-types"
 
 const AbscenceScreen = ({ navigation, route }) => {
   
@@ -29,11 +29,13 @@ console.log("blabla ou je ne sais pas", route.params.student.id);
       >
         <Text style={styles.buttonText}>Home</Text>
       </TouchableOpacity>
+
       <TouchableOpacity
         style={styles.buttonContainer}
         onPress={()=> dispatch(increment_abscence(id))}
       >
         <Text style={styles.buttonText}>Incrémenter (+1) </Text>
+
       </TouchableOpacity>
         <TouchableOpacity
           style={styles.buttonContainer}
@@ -41,6 +43,17 @@ console.log("blabla ou je ne sais pas", route.params.student.id);
         >
           <Text style={styles.buttonText}>decrémenter(-1 ) </Text>
         </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.buttonContainer}
+          onPress={()=> dispatch(reset_abscence(id))}
+        >
+          <Text style={styles.buttonText}>Reset </Text>
+        </TouchableOpacity>
+
+
+
+      
       <View  >
         <Text>Hello</Text>
       </View>
