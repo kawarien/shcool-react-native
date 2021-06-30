@@ -13,13 +13,15 @@ import {increment_abscence, decrement_abscence,reset_abscence} from "../../actio
 const AbscenceScreen = ({ navigation, route }) => {
   
 
-const { id } = route.params;
+const { id } = route.params.student.id;
+const { attendance } = route.params.student
+console.log("attendance attendance", attendance)
 const dispatch = useDispatch();
 
 
 
 // console.log(navigation);
-console.log("blabla ou je ne sais pas", route.params.student.id);
+console.log("id id ", route.params.student.id);
 
   return (
     <SafeAreaView style={{ flex: 1, alignItems: 'center' }}>
@@ -55,7 +57,7 @@ console.log("blabla ou je ne sais pas", route.params.student.id);
 
       
       <View  >
-        <Text>Hello</Text>
+        <Text style={{ padding: 2, marginBottom: 2 }} >Nombre d'abscence(s) {attendance}</Text>
       </View>
 
     </SafeAreaView>

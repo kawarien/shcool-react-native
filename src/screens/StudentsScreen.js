@@ -4,7 +4,7 @@ import Student from '../../components/student';
 import { Divider } from 'react-native-paper';
 import styles from '../../Styles/global';
 
-import { average, reOrder } from '../../actions/actions-types';
+import { average, reOrder, reset_abscenceTotal } from '../../actions/actions-types';
 
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -38,7 +38,7 @@ const StudentsScreen = ({ navigation }) => {
             </TouchableOpacity>
             <TouchableOpacity
                 style={styles.buttonContainer}
-                onPress={()=> console.log("Reset")}>
+                onPress={()=> dispatch(reset_abscenceTotal())}>
                 <Text style={styles.buttonText}>Reset abscence</Text>
             </TouchableOpacity>
             <TouchableOpacity

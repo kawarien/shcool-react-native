@@ -1,4 +1,4 @@
-import { SCHOOLDATA, REORDER, INCREMENT, DECREMENT } from "../../constants/actions";
+import { SCHOOLDATA, REORDER, INCREMENT, DECREMENT, RESETABB, RESETABBTOTAL } from "../../constants/actions";
 
 import { average } from "../../actions/actions-types"
 
@@ -21,9 +21,9 @@ export const initialState = {
 
 const deepCopieStudents = students => {
 
-  return  students.map(student=>({...student}));
+  return students.map(student => ({ ...student }));
 
-  
+
 
 }
 
@@ -51,66 +51,88 @@ const reducer = (state = initialState, action) => {
 
     case INCREMENT:
       students = deepCopieStudents(state.students);
-      student = { ...students.find(s => s.id ) };
+      student = { ...students.find(s => s.id) };
       student.attendance++;
       console.log("student.attendance", student)
 
-      students = students.map( s => {
-        if ( s.id != student.id ) return s;
+      students = students.map(s => {
+        if (s.id != student.id) return s;
         return student;
-     });
+      });
 
       return {
         ...state,
         students: students
-        
+
       }
 
     case DECREMENT:
       students = deepCopieStudents(state.students);
 
-      student = { ...students.find(s => s.id ) };
-      if(students.attendance > 0 ) {
+      student = { ...students.find(s => s.id) };
+      if (students.attendance > 0) {
         student.attendance--;
 
       } else {
         alert("Vous ne pouvez pas drecrementer en dessous de zero(0)")
       }
-      
+
       console.log("student.attendance", student)
 
-      students = students.map( s => {
-        if ( s.id != student.id ) return s;
+      students = students.map(s => {
+        if (s.id != student.id) return s;
         return student;
-     });
+      });
 
       return {
         ...state,
         students: students
-        
+
       }
 
-      case RESETABB:
-        students = deepCopieStudents(state.students);
-  
-        student = { ...students.find(s => s.id ) };
-        
-          student.attendance=0;
-  
-        
-        
-        console.log("student.attendance", student)
-  
-        students = students.map( s => {
-          if ( s.id != student.id ) return s;
-          return student;
-       });
-  
-        return {
-          ...state,
-          students: students
-          
-        }
+    case RESETABB:
+      students = deepCopieStudents(state.students);
+
+      student = { ...students.find(s => s.id) };
+
+      student.attendance = 0;
+
+
+
+      console.log("student.attendance", student)
+
+      students = students.map(s => {
+        if (s.id != student.id) return s;
+        return student;
+      });
+
+      return {
+        ...state,
+        students: students
+
+      }
+
+    case RESETABBTOTAL:
+      students = deepCopieStudents(state.students);
+
+      student = { ...students.attendance = 0};
+
+      student.attendance = 0;
+
+
+
+      console.log("student.attendance", student)
+
+      students = students.map(s => {
+        if (s.id != student.id) return s;
+        return student;
+      });
+
+      return {
+        ...state,
+        students: students
+
+      }
 
 
     case 'RESET':
